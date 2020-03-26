@@ -1,18 +1,28 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <p>Welcome to Your Vue.js App</p>
+    <button @click="toParent">跳转到parent</button>
+    <button @click="back">跳转到上一页</button>
+    <button @click="push">跳转到下一页</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+  },
+  methods: {
+    toParent () {
+      this.$router.push('/parent')
+    },
+    back () {
+      this.$router.back()
+    },
+    push () {
+      this.$router.replace({ name: 'parent' })
+    }
   }
 }
 </script>
