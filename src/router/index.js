@@ -3,7 +3,6 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
-
 const routes = [
   {
     path: '/',
@@ -40,6 +39,10 @@ const routes = [
   {
     path: '/login',
     component: () => import('../views/login.vue')
+  },
+  {
+    path: '/store',
+    component: () => import('../views/store.vue')
   },
   {
     path: '/name',
