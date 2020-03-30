@@ -30,6 +30,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    actionChangeUserneme (state, params) {
+      setTimeout(() => {
+        state.commit('CHANGE_USER_NAME', params)
+      }, 1000)
+    }
   },
   modules: {
   }

@@ -12,13 +12,14 @@
     <button @click="changeUserName">点击更改userName</button>
     <p>新增的值--{{newValue}}</p>
     <button @click="setNewValue">点击新增</button>
+    <button @click="actions">使用actions改变username</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import GContent from '../components/G-content.vue'
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'Home',
@@ -51,9 +52,17 @@ export default {
     // 调用getters内函数的第三种方法
     firstLetter () {
       return this.$store.getters.firstLetter
-    }
+    },
+    ...mapActions([
+      'actionChangeUserneme'
+    ])
   },
   methods: {
+    actions () {
+      this.$store.dispatch('actionChangeUserneme', {
+        newUserName: 'david'
+      })
+    },
     changeUserName () {
     // 第一种方法
       // this.$store.commit('CHANGE_USER_NAME')
